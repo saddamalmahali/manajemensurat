@@ -277,12 +277,67 @@ class SuratController extends Controller
         $disposisi->kode_organisasi = $request->input('kode_organisasi');
         $disposisi->sifat = $request->input('sifat');
         $disposisi->tindakan = $request->input('tindakan');
+        $disposisi->catatan = $request->input('catatan');
 
         if($disposisi->save())
         {
             $request->session()->flash('sukses', 'Berhasil Update Data!');
             return redirect('/disposisi/index');
         }
+    }
+
+    public function hapus_disposisi(Request $request)
+    {
+        $disposisi = DisposisiSurat::find($request->input('id'));
+
+        if($disposisi->delete()){
+            return json_encode('sukses');
+        }
+    }
+
+    public function update_disposisi($id)
+    {
+        $disposisi = DisposisiSurat::find($id);
+        $td = TujuanDisposisi::all();
+        return view('disposisi.update', ['disposisi'=>$disposisi, 'data_td'=>$td]);
+    }
+
+    public function simpan_update_disposisi(Request $request)
+    {
+        $this->validate($request, [
+            'tanggal_disposisi'=>'required',
+            'kode_organisasi'=>'required',
+            'sifat'=>'required',
+            'tindakan'=>'required'
+
+        ]);
+
+        $disposisi = DisposisiSurat::find($request->input('id'));
+        $disposisi->tanggal_disposisi = date('Y-m-d', strtotime($request->input('tanggal_disposisi')));
+        $disposisi->kode_organisasi = $request->input('kode_organisasi');
+        $disposisi->sifat = $request->input('sifat');
+        $disposisi->tindakan = $request->input('tindakan');
+        $disposisi->catatan = $request->input('catatan');
+
+        if($disposisi->save())
+        {
+            $request->session()->flash('sukses', 'Berhasil Update Data!');
+            return redirect('/disposisi/index');
+        }
+    }
+
+    public function laporan_surat_masuk(Request $request)
+    {
+        return view('laporan.surat_masuk');
+    }
+
+    public function laporan_surat_keluar(Request $request)
+    {
+        return view('laporan.surat_keluar');
+    }
+    public function laporan_disposisi(Request $request)
+    {
+        return view('laporan.disposisi');
     }
     
 }

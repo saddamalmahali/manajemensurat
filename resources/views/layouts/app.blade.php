@@ -80,10 +80,10 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">Laporan Surat Masuk</a></li>
-                                    <li><a href="#">Laporan Surat Keluar</a></li>
+                                    <li><a href="{{url('laporan/index_surat_masuk')}}">Laporan Surat Masuk</a></li>
+                                    <li><a href="{{url('laporan/index_surat_keluar')}}">Laporan Surat Keluar</a></li>
                                     <li class="divider"></li>
-                                    <li><a href="#">Laporan Disposisi Surat</a></li>
+                                    <li><a href="{{url('laporan/index_disposisi')}}">Laporan Disposisi Surat</a></li>
                                 </ul>
                             </li>
                             <li><a href="Tentang">Tentang</a></li>

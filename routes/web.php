@@ -37,6 +37,16 @@ Route::group(['middleware'=>['web']],function(){
 
     Route::get('/disposisi/index', 'SuratController@index_disposisi');
     Route::get('/disposisi/tambah', 'SuratController@tambah_disposisi');
+    Route::get('/disposisi/update/{i}', 'SuratController@update_disposisi');
     Route::post('/disposisi/simpan', 'SuratController@simpan_disposisi');
+    Route::post('/disposisi/hapus', 'SuratController@hapus_disposisi');
+    Route::post('/disposisi/simpan_update', 'SuratController@simpan_update_disposisi');
+
+
+
+    Route::get('/laporan/index_surat_masuk', 'SuratController@laporan_surat_masuk');
+    Route::get('/laporan/index_surat_keluar', 'SuratController@laporan_surat_keluar');
+    Route::get('/laporan/index_disposisi', 'SuratController@laporan_disposisi');
+    
 
 });
