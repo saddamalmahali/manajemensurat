@@ -339,5 +339,33 @@ class SuratController extends Controller
     {
         return view('laporan.disposisi');
     }
+
+    public function print_surat_masuk(Request $request)
+    {
+        $tanggal_dari = date('Y-m-d', strtotime($request->input('tanggal_dari')));
+        $tanggal_sampai = date('Y-m-d', strtotime($request->input('tanggal_sampai')));
+
+        $sm = SuratMasuk::whereBetween('tgl_sm', [$tanggal_dari, $tanggal_sampai])->get();
+
+        return view('laporan.print_surat_masuk', ['data_sm'=> $sm, 'dari_tanggal'=>$tanggal_dari, 'sampai_tanggal'=>$tanggal_sampai]);
+    }
+    public function print_surat_keluar(Request $request)
+    {
+        $tanggal_dari = date('Y-m-d', strtotime($request->input('tanggal_dari')));
+        $tanggal_sampai = date('Y-m-d', strtotime($request->input('tanggal_sampai')));
+
+        $sk = SuratKeluar::whereBetween('tanggal_sk', [$tanggal_dari, $tanggal_sampai])->get();
+
+        return view('laporan.print_surat_keluar', ['data_sk'=> $sk, 'dari_tanggal'=>$tanggal_dari, 'sampai_tanggal'=>$tanggal_sampai]);
+    }
+    public function print_disposisi(Request $request)
+    {
+        $tanggal_dari = date('Y-m-d', strtotime($request->input('tanggal_dari')));
+        $tanggal_sampai = date('Y-m-d', strtotime($request->input('tanggal_sampai')));
+
+        $disposisi = DisposisiSurat::whereBetween('tanggal_disposisi', [$tanggal_dari, $tanggal_sampai])->get();
+
+        return view('laporan.print_disposisi', ['data_disposisi'=> $disposisi, 'dari_tanggal'=>$tanggal_dari, 'sampai_tanggal'=>$tanggal_sampai]);
+    }
     
 }

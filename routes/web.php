@@ -45,6 +45,9 @@ Route::group(['middleware'=>['web']],function(){
 
 
     Route::get('/laporan/index_surat_masuk', 'SuratController@laporan_surat_masuk');
+    Route::post('/laporan/print_surat_masuk', 'SuratController@print_surat_masuk');
+    Route::post('/laporan/print_surat_keluar', 'SuratController@print_surat_keluar');
+    Route::post('/laporan/print_disposisi', 'SuratController@print_disposisi');
     Route::get('/laporan/index_surat_keluar', 'SuratController@laporan_surat_keluar');
     Route::get('/laporan/index_disposisi', 'SuratController@laporan_disposisi');
     
