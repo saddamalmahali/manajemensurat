@@ -44,8 +44,8 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                    <a class="navbar-brand" href="{{ url('/') }}" style="padding:5px;">
+                        <img src="{{url('/img/logo_dishub.png')}}" width="150" heigth="60" alt="logo">
                     </a>
                 </div>
 
