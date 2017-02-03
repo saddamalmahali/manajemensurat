@@ -87,7 +87,7 @@
                                     <li><a href="{{url('laporan/index_disposisi')}}">Laporan Disposisi Surat</a></li>
                                 </ul>
                             </li>
-                            <li><a href="Tentang">Tentang</a></li>
+                            <li><a href="{{url('/tentang')}}">Tentang</a></li>
 
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
