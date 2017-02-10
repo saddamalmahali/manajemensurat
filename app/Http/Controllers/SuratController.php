@@ -326,6 +326,12 @@ class SuratController extends Controller
         }
     }
 
+    public function view_disposisi($id){
+        $disposisi = DisposisiSurat::find($id);
+
+        return view('disposisi.view', ['disposisi'=>$disposisi]);
+    }
+
     public function laporan_surat_masuk(Request $request)
     {
         return view('laporan.surat_masuk');

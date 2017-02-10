@@ -45,7 +45,9 @@
                                             <td align="center">{{$disposisi->tindakan}}</td>
                                             <td align="center">{{$disposisi->catatan}}</td>
                                             <td align="center">
+                                                <a href="{{url('/disposisi/view').'/'.$disposisi->indexd }}" class="btn btn-primary btn-xs"><i class="fa fa-search"></i></a>
                                                 <a href="{{url('/disposisi/update').'/'.$disposisi->indexd }}" class="btn btn-warning btn-xs"><i class="fa fa-pencil"></i></a>
+                                                
                                                 <a class="btn btn-danger btn-xs btn-hapus-disposisi" id="{{$disposisi->indexd}}"><i class="fa fa-trash"></i></a>
                                             </td>
 

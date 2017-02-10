@@ -46,6 +46,7 @@ Route::group(['middleware'=>['web']],function(){
     Route::get('/disposisi/update/{i}', 'SuratController@update_disposisi');
     Route::post('/disposisi/simpan', 'SuratController@simpan_disposisi');
     Route::post('/disposisi/hapus', 'SuratController@hapus_disposisi');
+    Route::get('/disposisi/view/{i}', 'SuratController@view_disposisi');
     Route::post('/disposisi/simpan_update', 'SuratController@simpan_update_disposisi');
 
 

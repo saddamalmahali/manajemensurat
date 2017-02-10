@@ -45,7 +45,7 @@
                                 <div class="panel-body">
                                        <a href="{{url('/disposisi/index')}}"> <h2>
                                              {{$data['jml_disposisi']}}
-                                            <p><small>Total Disposisik</small></p>                                        
+                                            <p><small>Total Disposisi</small></p>                                        
                                         </h2></a>
                                     
                                 </div>                                
