@@ -11,14 +11,20 @@
 |
 */
 
-
+Route::get('/', function(){
+    if(Auth::guard('web')->check()){
+        return redirect('/home');
+    }else{
+        return redirect('login');
+    }
+});
+    
 
 Auth::routes();
-
+Route::get('/home', 'SuratController@home');
 
 Route::group(['middleware'=>['web']],function(){
-    Route::get('/', 'SuratController@home');
-    Route::get('/home', 'SuratController@home');
+    
     Route::get('/surat_masuk/index', 'SuratController@index_surat_masuk');
     Route::get('/surat_masuk/tambah', 'SuratController@tambah_surat_masuk');
     Route::get('/surat_masuk/update/{id}', 'SuratController@update_surat_masuk');
@@ -50,6 +56,11 @@ Route::group(['middleware'=>['web']],function(){
     Route::post('/laporan/print_disposisi', 'SuratController@print_disposisi');
     Route::get('/laporan/index_surat_keluar', 'SuratController@laporan_surat_keluar');
     Route::get('/laporan/index_disposisi', 'SuratController@laporan_disposisi');
+
+    Route::get('/tentang', 'HomeController@tentang');
     
 
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');

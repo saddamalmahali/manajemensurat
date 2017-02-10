@@ -18,7 +18,7 @@ class SuratController extends Controller
 
     public function index_surat_masuk()
     {
-        $sm = new SuratMasuk();
+        $sm = SuratMasuk::orderBy('indexsm', 'desc');
         $sm = $sm->paginate('9');
         return view('surat_masuk.index', ['data_surat'=>$sm]);
     }
@@ -142,7 +142,7 @@ class SuratController extends Controller
     
     public function index_surat_keluar()
     {
-        $sk = new SuratKeluar();
+        $sk = SuratKeluar::orderBy('indexsk', 'desc');
         $sk = $sk->paginate('9');
         return view('surat_keluar.index', ['data_surat_keluar'=>$sk]);
     }
@@ -245,7 +245,7 @@ class SuratController extends Controller
 
     public function index_disposisi()
     {
-        $disposisi = new DisposisiSurat();
+        $disposisi = DisposisiSurat::orderBy('indexsm', 'desc');
         $disposisi = $disposisi->paginate('9');
 
         return view('disposisi.index', ['data_disposisi'=>$disposisi]);

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,12 +11,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="{{url('/css/bootstrap-datepicker3.min.css')}}" rel="stylesheet">
-
-    <link href="{{url('/css/app.css')}}" rel="stylesheet">
-    <link href="{{url('/css/font-awesome.min.css')}}" rel="stylesheet">
-
-    <script src="{{url('/plugins/jquery-ui/external/jquery/jquery.js')}}"></script>
+    <link href="/css/app.css" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
@@ -25,9 +19,6 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
-    <script src="/js/bootstrap-datepicker.min.js"></script>
-    
-    
 </head>
 <body>
     <div id="app">
@@ -44,8 +35,8 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}" style="padding:5px;">
-                        <img src="{{url('/img/logo_dishub.png')}}" width="150" heigth="60" alt="logo">
+                    <a class="navbar-brand" href="{{ url('/') }}">
+                        {{ config('app.name', 'Laravel') }}
                     </a>
                 </div>
 
@@ -62,33 +53,6 @@
                             <li><a href="{{ url('/login') }}">Login</a></li>
                             <li><a href="{{ url('/register') }}">Register</a></li>
                         @else
-                            
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    Input Surat <span class="caret"></span>
-                                </a>
-
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="{{url('/surat_masuk/index')}}">Surat Masuk</a></li>
-                                    <li><a href="{{url('/surat_keluar/index')}}">Surat Keluar</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="{{url('/disposisi/index')}}">Disposisi Surat</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    Laporan <span class="caret"></span>
-                                </a>
-
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="{{url('laporan/index_surat_masuk')}}">Laporan Surat Masuk</a></li>
-                                    <li><a href="{{url('laporan/index_surat_keluar')}}">Laporan Surat Keluar</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="{{url('laporan/index_disposisi')}}">Laporan Disposisi Surat</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="{{url('/tentang')}}">Tentang</a></li>
-
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -116,8 +80,8 @@
 
         @yield('content')
     </div>
+
     <!-- Scripts -->
     <script src="/js/app.js"></script>
-    
 </body>
 </html>
